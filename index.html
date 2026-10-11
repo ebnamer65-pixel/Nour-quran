@@ -16,7 +16,7 @@
 :root{
   --p:#0f6b4f;--p2:#0a4a38;--pt:#dff1e8;--gold:#c99a2e;--gold2:#e8c768;
   --bg:#f4f1e8;--card:#ffffff;--ink:#1d2a25;--mut:#68776f;--line:#e3ddcb;--paper:#fbf6e9;
-  --qfont:'Amiri Quran',serif;--qsize:30px;--qcolor:var(--ink);
+  --qfont:'Amiri Quran',serif;--qsize:30px;--qcolor:var(--ink);--ui:1.3;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 :root[data-accent=sapphire]{--p:#1f4e8c;--p2:#14325c;--pt:#dde8f6}
@@ -34,13 +34,13 @@
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',system-ui,sans-serif;line-height:1.6;min-height:100%}
 button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
-.ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ico{width:calc(22px * var(--ui));height:calc(22px * var(--ui));fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:linear-gradient(180deg,var(--p),var(--p2));color:#fff;display:flex;align-items:center;gap:10px;padding:10px 14px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
 header.top h1{font-family:'Reem Kufi',serif;font-size:21px;margin:0;flex:1;font-weight:700;letter-spacing:.3px}
-header.top .ib{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.14)}
+header.top .ib{width:calc(38px * var(--ui));height:calc(38px * var(--ui));border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.14)}
 main{padding:14px 14px 150px;max-width:720px;margin:0 auto}
 nav.bar{position:fixed;inset:auto 0 0 0;z-index:30;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
-nav.bar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;color:var(--mut);padding:5px 0;border-radius:14px;font-weight:600}
+nav.bar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:calc(11.5px * var(--ui));color:var(--mut);padding:5px 0;border-radius:14px;font-weight:600}
 nav.bar button.on{color:var(--p);background:var(--pt)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px}
 .hero{position:relative;overflow:hidden;color:#fff;border-radius:26px 26px 26px 26px;padding:20px 18px 18px;background:linear-gradient(160deg,var(--p) 0%,var(--p2) 100%)}
@@ -56,8 +56,8 @@ nav.bar button.on{color:var(--p);background:var(--pt)}
 .btn.soft{background:var(--pt);color:var(--p)}
 .btn.line{border:1.5px solid var(--line)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
-.tile{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 4px 11px;border-radius:20px;color:#fff;font-weight:700;font-size:13px;text-align:center;position:relative;overflow:hidden}
-.tile .ico{width:30px;height:30px;stroke-width:1.6}
+.tile{display:flex;flex-direction:column;align-items:center;gap:7px;padding:calc(14px * var(--ui)) 4px calc(11px * var(--ui));border-radius:20px;color:#fff;font-weight:700;font-size:calc(13px * var(--ui));text-align:center;position:relative;overflow:hidden}
+.tile .ico{width:calc(30px * var(--ui));height:calc(30px * var(--ui));stroke-width:1.6}
 .tile::after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,.12);left:-20px;bottom:-26px}
 .t1{background:linear-gradient(145deg,#12805e,#0a4f3b)}.t2{background:linear-gradient(145deg,#c99a2e,#8c6410)}
 .t3{background:linear-gradient(145deg,#2c6fbf,#173f78)}.t4{background:linear-gradient(145deg,#a8416f,#6b1f45)}
@@ -85,7 +85,7 @@ input[type=search],input[type=text],select{width:100%;padding:12px 14px;border-r
 .rtop .t{flex:1}
 .rtop .t b{font-family:'Reem Kufi',serif;font-size:19px;color:var(--p)}
 .rtop .t div{font-size:12px;color:var(--mut)}
-.ib2{width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:grid;place-items:center}
+.ib2{width:calc(40px * var(--ui));height:calc(40px * var(--ui));border-radius:12px;background:var(--pt);color:var(--p);display:grid;place-items:center}
 .ib2.on{background:var(--p);color:#fff}
 .page{background:var(--paper);border-radius:6px;padding:18px 16px;position:relative;border:2px solid var(--gold);box-shadow:0 0 0 5px var(--paper),0 0 0 6.5px var(--gold),0 12px 28px rgba(0,0,0,.14);margin:10px 6px 16px}
 .page::before{content:"";position:absolute;inset:6px;border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);pointer-events:none}
@@ -113,7 +113,7 @@ input[type=search],input[type=text],select{width:100%;padding:12px 14px;border-r
 #player .pi{flex:1;min-width:0}
 #player b{font-family:'Reem Kufi',serif;font-size:16px;display:block}
 #player span{font-size:12px;opacity:.85}
-#player button{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}
+#player button{width:calc(38px * var(--ui));height:calc(38px * var(--ui));border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}
 #player button.big{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#3a2a00}
 /* adhkar */
 .dk{margin-bottom:12px;position:relative}
@@ -127,7 +127,7 @@ input[type=search],input[type=text],select{width:100%;padding:12px 14px;border-r
 .cat{display:flex;align-items:center;gap:12px;padding:14px;border-radius:18px;color:#fff;margin-bottom:10px;width:100%;text-align:right}
 .cat b{font-family:'Reem Kufi',serif;font-size:19px;display:block}
 .cat span{font-size:12px;opacity:.9}
-.cat .ico{width:34px;height:34px}
+.cat .ico{width:calc(34px * var(--ui));height:calc(34px * var(--ui))}
 /* qibla */
 .compass{width:min(320px,86vw);aspect-ratio:1;margin:8px auto;position:relative}
 .compass svg{width:100%;height:100%}
@@ -313,7 +313,7 @@ const norm=s=>s.replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g,'').replace(
 function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',2800)}
 function vib(n=15){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
 
-let S=Object.assign({accent:'emerald',mode:'auto',font:'Amiri Quran',size:30,color:'',paper:'cream',reciter:'Alafasy_128kbps',repeat:1},ld('s',{}));
+let S=Object.assign({accent:'emerald',mode:'auto',font:'Amiri Quran',size:30,color:'',ui:1.3,paper:'cream',reciter:'Alafasy_128kbps',repeat:1},ld('s',{}));
 let MEM=ld('mem',{}),BM=ld('bm',[]),LAST=ld('last',null);
 function applyS(){
   const r=document.documentElement;
@@ -322,6 +322,7 @@ function applyS(){
   r.style.setProperty('--qfont',`'${S.font}',serif`);
   r.style.setProperty('--qsize',S.size+'px');
   r.style.setProperty('--qcolor',S.color||'var(--ink)');
+  r.style.setProperty('--ui',S.ui);
   sv('s',S);
 }
 applyS();
@@ -730,6 +731,8 @@ function rSettings(){
    <div class="row"><label>خلفية الصفحة</label><div class="sw">${PP.map(c=>`<button class="${S.paper===c[0]?'on':''}" style="background:${c[1]}" aria-label="خلفية" onclick="S.paper='${c[0]}';applyS();rSettings()"></button>`).join('')}</div></div>
   </div>
   <div class="card" style="margin-top:12px">
+   <div class="row"><label>حجم الأيقونات والأزرار: <span id="uiv">${AR(Math.round(S.ui*100))}٪</span></label></div>
+   <input type="range" min="1" max="2" step="0.05" value="${S.ui}" oninput="S.ui=+this.value;applyS();$('#uiv').textContent=AR(Math.round(S.ui*100))+'٪'">
    <div class="row"><label>لون التطبيق</label><div class="sw">${AC.map(c=>`<button class="${S.accent===c[0]?'on':''}" style="background:${c[1]}" aria-label="${c[2]}" onclick="S.accent='${c[0]}';applyS();rSettings()"></button>`).join('')}</div></div>
    <div class="row"><label>المظهر</label><div class="seg" style="margin:0;min-width:210px">${[['auto','تلقائي'],['light','نهاري'],['dark','ليلي']].map(m=>`<button class="${S.mode===m[0]?'on':''}" onclick="S.mode='${m[0]}';applyS();rSettings()">${m[1]}</button>`).join('')}</div></div>
    <div class="row"><label>القارئ</label><select style="width:auto;max-width:210px" onchange="S.reciter=this.value;applyS();if(P)setSrc()">${RECS.map(r=>`<option value="${r[1]}" ${S.reciter===r[1]?'selected':''}>${r[0]}</option>`).join('')}</select></div>
